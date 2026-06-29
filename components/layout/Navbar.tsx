@@ -21,18 +21,18 @@ const DownloadResumeButton = () => {
   const handleDownload = () => {
     if (status !== 'idle') return;
     setStatus('downloading');
-    
+
     setTimeout(() => {
       setStatus('success');
       setTimeout(() => {
         setStatus('idle');
       }, 2000);
-    }, 400); 
+    }, 400);
   };
 
   return (
     <a
-      href="/jatinNayal.pdf"
+      href="/JatinNayal.pdf"
       download="Jatin-Nayal-Resume.pdf"
       onClick={handleDownload}
       className="relative p-2 w-10 h-10 flex items-center justify-center rounded-full overflow-hidden transition-colors hover:bg-gray-200/50 dark:hover:bg-gray-800/50 text-black dark:text-gray-200 outline-none focus:ring-2 focus:ring-purple-500/50"
@@ -53,7 +53,7 @@ const DownloadResumeButton = () => {
           animate={{ pathLength: status === 'idle' ? 1 : 0, opacity: status === 'idle' ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         />
-        
+
         {/* Checkmark */}
         <motion.path
           d="M20 6L9 17l-5-5"
@@ -108,17 +108,17 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 px-4 md:px-10 lg:px-12 py-6 flex justify-between items-center pointer-events-none">
-      
+
       {/* Left Logo Area */}
       <div className="flex-1 flex justify-start pointer-events-auto">
         <Link href="/" data-cursor="Home">
           <div className="rounded-full p-1 cursor-pointer transition-transform duration-300 hover:scale-105 hover:bg-black/5 dark:hover:bg-white/10">
-            <Image 
+            <Image
               src="/assets/logo.png"
-              alt="Logo" 
+              alt="Logo"
               width={40}
               height={40}
-              className="h-10 w-10 rounded-full object-cover" 
+              className="h-10 w-10 rounded-full object-cover"
             />
           </div>
         </Link>
@@ -135,11 +135,10 @@ const Navbar = () => {
                 key={link.name}
                 href={link.path}
                 data-cursor={link.name}
-                className={`relative px-5 py-2 text-sm font-medium transition-colors rounded-full outline-none focus-visible:ring-2 focus-visible:ring-gray-400 ${
-                  isActive 
-                    ? 'text-gray-900 dark:text-white' 
+                className={`relative px-5 py-2 text-sm font-medium transition-colors rounded-full outline-none focus-visible:ring-2 focus-visible:ring-gray-400 ${isActive
+                    ? 'text-gray-900 dark:text-white'
                     : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
-                }`}
+                  }`}
               >
                 {isActive && (
                   <motion.div
@@ -156,7 +155,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         <div className="md:hidden relative">
-          <button 
+          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="flex items-center gap-2 px-5 py-2.5 bg-gray-100/90 dark:bg-[#0a0a0a]/90 backdrop-blur-md border border-transparent dark:border-gray-800/60 rounded-full shadow-sm text-sm font-medium text-gray-900 dark:text-white"
           >
@@ -178,11 +177,10 @@ const Navbar = () => {
                     <Link
                       key={link.name}
                       href={link.path}
-                      className={`relative px-4 py-2.5 text-sm font-medium rounded-xl transition-colors text-center ${
-                        isActive 
-                          ? 'text-gray-900 dark:text-white bg-gray-100 dark:bg-[#1a1a1a]' 
+                      className={`relative px-4 py-2.5 text-sm font-medium rounded-xl transition-colors text-center ${isActive
+                          ? 'text-gray-900 dark:text-white bg-gray-100 dark:bg-[#1a1a1a]'
                           : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5'
-                      }`}
+                        }`}
                     >
                       {link.name}
                     </Link>
