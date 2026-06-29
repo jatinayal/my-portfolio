@@ -208,7 +208,7 @@ function SortableTile({ id, children }: { id: string, children: React.ReactNode 
   };
 
   const getTileContext = () => {
-    switch(id) {
+    switch (id) {
       case 'github': return { color: '#000000', label: 'Drag GitHub' };
       case 'linkedin': return { color: '#0A66C2', label: 'Drag LinkedIn' };
       case 'instagram': return { color: '#d6249f', label: 'Drag Instagram' };
@@ -343,7 +343,7 @@ function TileContent({ id, handleOpenContactModal, isOverlay = false }: { id: st
               <FaLinkedin className="text-4xl lg:text-6xl drop-shadow-md" />
             </div>
           </div>
-          <Link href="https://linkedin.com" target="_blank" onClick={(e) => { if (isOverlay) e.preventDefault(); e.stopPropagation(); }} className="absolute top-6 right-6 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm z-30 hover:bg-white/40 hover:scale-110 cursor-pointer pointer-events-auto" data-cursor="View LinkedIn" data-cursor-type="pointer" data-cursor-color="#0A66C2">
+          <Link href="https://www.linkedin.com/in/jatin-nayal-300438353" target="_blank" onClick={(e) => { if (isOverlay) e.preventDefault(); e.stopPropagation(); }} className="absolute top-6 right-6 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm z-30 hover:bg-white/40 hover:scale-110 cursor-pointer pointer-events-auto" data-cursor="View LinkedIn" data-cursor-type="pointer" data-cursor-color="#0A66C2">
             <FiArrowUpRight className="text-white text-lg" />
           </Link>
         </div>
@@ -357,7 +357,7 @@ function TileContent({ id, handleOpenContactModal, isOverlay = false }: { id: st
               <FaInstagram className="text-4xl lg:text-6xl drop-shadow-md" />
             </div>
           </div>
-          <Link href="https://instagram.com" target="_blank" onClick={(e) => { if (isOverlay) e.preventDefault(); e.stopPropagation(); }} className="absolute top-6 right-6 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm z-30 hover:bg-white/40 hover:scale-110 cursor-pointer pointer-events-auto" data-cursor="View Instagram" data-cursor-type="pointer" data-cursor-color="#d6249f">
+          <Link href="https://www.instagram.com/jatinayal" target="_blank" onClick={(e) => { if (isOverlay) e.preventDefault(); e.stopPropagation(); }} className="absolute top-6 right-6 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm z-30 hover:bg-white/40 hover:scale-110 cursor-pointer pointer-events-auto" data-cursor="View Instagram" data-cursor-type="pointer" data-cursor-color="#d6249f">
             <FiArrowUpRight className="text-white text-lg" />
           </Link>
         </div>
@@ -371,7 +371,7 @@ function TileContent({ id, handleOpenContactModal, isOverlay = false }: { id: st
               <FaGithub className="text-4xl lg:text-6xl drop-shadow-md" />
             </div>
           </div>
-          <Link href="https://github.com" target="_blank" onClick={(e) => { if (isOverlay) e.preventDefault(); e.stopPropagation(); }} className="absolute top-6 right-6 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm z-30 hover:bg-white/20 hover:scale-110 cursor-pointer pointer-events-auto" data-cursor="View GitHub" data-cursor-type="pointer" data-cursor-color="#000000">
+          <Link href="https://github.com/jatinayal" target="_blank" onClick={(e) => { if (isOverlay) e.preventDefault(); e.stopPropagation(); }} className="absolute top-6 right-6 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm z-30 hover:bg-white/20 hover:scale-110 cursor-pointer pointer-events-auto" data-cursor="View GitHub" data-cursor-type="pointer" data-cursor-color="#000000">
             <FiArrowUpRight className="text-white text-lg" />
           </Link>
         </div>
@@ -402,9 +402,9 @@ function TileContent({ id, handleOpenContactModal, isOverlay = false }: { id: st
             <p className="text-gray-500 dark:text-gray-400 mb-6 lg:mb-8 max-w-xs text-xs lg:text-base leading-relaxed">
               Reach out for collaborations, project inquiries, or just to say hi!
             </p>
-            <button 
-              onClick={(e) => { 
-                if (isOverlay) e.preventDefault(); 
+            <button
+              onClick={(e) => {
+                if (isOverlay) e.preventDefault();
                 else handleOpenContactModal();
                 e.stopPropagation();
               }}
@@ -419,7 +419,7 @@ function TileContent({ id, handleOpenContactModal, isOverlay = false }: { id: st
           <div className="w-[45%] lg:w-1/2 h-full flex items-center justify-center relative z-0 pointer-events-none">
             <div className="absolute inset-0 bg-gray-500/5 dark:bg-gray-500/10 rounded-full blur-[60px] transform translate-x-10" />
             <div className="relative w-full max-w-[280px] aspect-[5/4] mt-2 lg:mt-8">
-              
+
               {/* Envelope Back */}
               <div className="absolute bottom-0 left-0 w-full h-[65%] bg-[#F0F0F0] dark:bg-[#2A2A2A] rounded-2xl shadow-inner border border-gray-200 dark:border-gray-800" />
 
@@ -457,8 +457,8 @@ function TileContent({ id, handleOpenContactModal, isOverlay = false }: { id: st
               </div>
             </div>
           </div>
-          <button onClick={(e) => { 
-            if (isOverlay) e.preventDefault(); 
+          <button onClick={(e) => {
+            if (isOverlay) e.preventDefault();
             else handleOpenContactModal();
             e.stopPropagation();
           }} className="absolute top-6 right-6 w-10 h-10 lg:w-12 lg:h-12 bg-white/90 dark:bg-gray-800/90 rounded-full flex items-center justify-center opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 border border-gray-100 dark:border-gray-700 z-30 hover:scale-110 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer pointer-events-auto shadow-sm" data-cursor="Let's Connect" data-cursor-type="pointer" data-cursor-color="#FF6B6B">

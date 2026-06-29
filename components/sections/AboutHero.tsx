@@ -42,8 +42,7 @@ export default function AboutHero() {
           Hi, I'm Jatin.
         </h1>
         <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
-          A passionate <span className="text-gray-900 dark:text-white">Web Developer</span> dedicated to crafting premium, interactive, and high-performance digital experiences. 
-          I specialize in the modern React ecosystem, focusing on clean architecture and polished UI/UX.
+          Building fast, clean, and interactive web experiences that <span className="text-gray-900 dark:text-white">just feel right.</span> Obsessed with React, polished UI, and writing code that's as smooth as the user experience.
         </p>
       </motion.div>
 
