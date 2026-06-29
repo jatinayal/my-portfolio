@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { educations } from '@/data/education';
+import Image from 'next/image';
 
 export default function EducationList() {
   return (
@@ -25,8 +26,12 @@ export default function EducationList() {
               className="w-full flex flex-col sm:flex-row sm:items-center justify-between p-5 md:p-6 bg-gray-50 dark:bg-[#161616] border border-transparent dark:border-gray-800 rounded-2xl gap-4 group"
             >
               <div className="flex items-start gap-5">
-                <div className="w-12 h-12 flex-shrink-0 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-xl font-bold text-gray-500 shadow-sm mt-1 sm:mt-0">
-                  {edu.institution.charAt(0)}
+                <div className="w-12 h-12 flex-shrink-0 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-xl font-bold text-gray-500 shadow-sm mt-1 sm:mt-0 relative overflow-hidden">
+                  {edu.logoUrl ? (
+                    <Image src={edu.logoUrl} alt={edu.institution} fill className="object-cover" />
+                  ) : (
+                    edu.institution.charAt(0)
+                  )}
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white">

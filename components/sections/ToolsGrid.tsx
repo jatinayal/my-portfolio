@@ -2,26 +2,32 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiArrowUpRight, FiLayers } from 'react-icons/fi';
-import { 
-  SiTypescript, 
-  SiJavascript, 
-  SiReact, 
-  SiNextdotjs, 
-  SiTailwindcss, 
-  SiFramer,
+import { FiArrowUpRight, FiLayers, FiServer } from 'react-icons/fi';
+import {
+  SiTypescript,
+  SiJavascript,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiRedux,
   SiNodedotjs,
   SiExpress,
-  SiPostgresql,
+  SiJsonwebtokens,
   SiMongodb,
+  SiRedis,
+  SiPostgresql,
   SiGit,
-  SiDocker,
+  SiGithub,
   SiVercel,
+  SiRender,
+  SiPostman,
+  SiJira,
   SiOpenai,
-  SiAnthropic,
-  SiFigma
+  SiClaude,
+  SiGooglegemini,
+  SiAnthropic
 } from 'react-icons/si';
-import { TbBrandVscode } from 'react-icons/tb';
+import { TbApi, TbSchema, TbTerminal, TbBrain, TbRocket, TbCode } from 'react-icons/tb';
 import { tools, Tool } from '@/data/tools';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -34,27 +40,36 @@ const getToolIcon = (iconName: string) => {
     case 'react': return <SiReact className="text-[#61DAFB]" />;
     case 'next.js': return <SiNextdotjs className="text-black dark:text-white" />;
     case 'tailwind': return <SiTailwindcss className="text-[#06B6D4]" />;
-    case 'framer': return <SiFramer className="text-black dark:text-white" />;
+    case 'redux': return <SiRedux className="text-[#764ABC]" />;
     case 'node.js': return <SiNodedotjs className="text-[#339933]" />;
     case 'express': return <SiExpress className="text-black dark:text-white" />;
-    case 'postgresql': return <SiPostgresql className="text-[#4169E1]" />;
+    case 'rest': return <TbApi className="text-[#007ACC]" />;
+    case 'jwt': return <SiJsonwebtokens className="text-[#000000] dark:text-white" />;
     case 'mongodb': return <SiMongodb className="text-[#47A248]" />;
+    case 'redis': return <SiRedis className="text-[#DC382D]" />;
+    case 'postgresql': return <SiPostgresql className="text-[#4169E1]" />;
+    case 'system': return <TbSchema className="text-[#10B981]" />;
     case 'git': return <SiGit className="text-[#F05032]" />;
-    case 'docker': return <SiDocker className="text-[#2496ED]" />;
+    case 'github': return <SiGithub className="text-[#181717] dark:text-white" />;
     case 'vercel': return <SiVercel className="text-black dark:text-white" />;
-    case 'vscode': return <TbBrandVscode className="text-[#007ACC]" />;
-    case 'cursor': return <TbBrandVscode className="text-black dark:text-white" />; // Fallback as Cursor icon might not be in SimpleIcons yet
-    case 'openai': return <SiOpenai className="text-black dark:text-white" />;
-    case 'anthropic': return <SiAnthropic className="text-[#D4A373]" />; // Anthropic theme color
-    case 'figma': return <SiFigma className="text-[#F24E1E]" />;
+    case 'render': return <SiRender className="text-[#46E3B7]" />;
+    case 'postman': return <SiPostman className="text-[#FF6C37]" />;
+    case 'jira': return <SiJira className="text-[#0052CC]" />;
+    case 'llm': return <SiOpenai className="text-[#412991] dark:text-white" />;
+    case 'prompt': return <TbTerminal className="text-[#F59E0B]" />;
+    case 'antigravity': return <SiGooglegemini className="text-[#4285F4]" />;
+    case 'claude': return <SiClaude className="text-[#D4A373]" />;
+    case 'opencode': return <SiAnthropic className="text-[#181717] dark:text-white" />;
     default: return <FiLayers className="text-gray-500" />;
   }
 };
 
 export default function ToolsGrid() {
+  const [imgSrc, setImgSrc] = React.useState('/tools.memoji.png');
+
   return (
     <section className="w-full max-w-[1400px] mx-auto px-4 lg:px-8 py-8 lg:py-0 h-auto lg:min-h-[calc(100vh-120px)] flex items-center justify-center">
-      
+
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 auto-rows-[auto]">
 
         {/* 1. INTRODUCTION CARD (Spans 2 columns on Desktop) */}
@@ -64,17 +79,17 @@ export default function ToolsGrid() {
           transition={{ duration: 0.4 }}
           className="md:col-span-2 relative rounded-[32px] overflow-hidden bg-white dark:bg-[#111] border border-gray-100 dark:border-gray-800 shadow-sm p-8 lg:p-10 flex flex-col sm:flex-row items-center sm:items-start gap-6 lg:gap-8 group"
         >
-          <div className="w-24 h-24 sm:w-32 sm:h-32 shrink-0 bg-blue-50 dark:bg-blue-900/20 rounded-full border border-blue-100 dark:border-blue-800/50 flex items-center justify-center overflow-hidden shadow-inner">
+          <div className="w-24 h-24 sm:w-32 sm:h-32 shrink-0 flex items-center justify-center relative">
             <Image
-              src="/memoji.png"
+              src={imgSrc}
               alt="Memoji"
-              width={120}
-              height={120}
-              className="object-contain pt-2"
+              fill
+              className="object-contain"
               priority
+              onError={() => setImgSrc('/memoji.png')}
             />
           </div>
-          
+
           <div className="flex-1 text-center sm:text-left z-10">
             <h1 className="text-3xl lg:text-4xl font-extrabold text-gray-900 dark:text-white mb-3">
               Tools & Technologies
@@ -117,9 +132,6 @@ const ToolCard = React.memo(function ToolCard({ tool, index }: { tool: Tool; ind
 
           {/* Tool Info */}
           <div className="mt-auto z-10">
-            <span className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1 block">
-              {tool.category}
-            </span>
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
               {tool.name}
             </h3>

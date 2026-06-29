@@ -32,7 +32,7 @@ const DownloadResumeButton = () => {
 
   return (
     <a
-      href="/resume.pdf"
+      href="/jatinNayal.pdf"
       download="Jatin-Nayal-Resume.pdf"
       onClick={handleDownload}
       className="relative p-2 w-10 h-10 flex items-center justify-center rounded-full overflow-hidden transition-colors hover:bg-gray-200/50 dark:hover:bg-gray-800/50 text-black dark:text-gray-200 outline-none focus:ring-2 focus:ring-purple-500/50"

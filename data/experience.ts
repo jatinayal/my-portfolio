@@ -16,28 +16,49 @@ export type Experience = {
 export const experiences: Experience[] = [
   {
     id: "kyrex-web-dev",
-    company: "Kyrex",
-    role: "Web Developer",
+    company: "Kyrex Digitech Pvt. Ltd., Noida",
+    logoUrl: "/exp/kyrex.png",
+    role: "Web Developer Intern",
     status: "Current",
-    startDate: "2023", // or whenever
-    overview: "Kyrex is a forward-thinking technology company focused on delivering premium enterprise solutions. As a core member of the frontend team, I am responsible for architecting and building robust, scalable web applications that drive business value.",
+    startDate: "Feb 2026",
+    endDate: "Jul 2026",
+    overview: "Worked as a Web Developer Intern, contributing to modern web applications and collaborative development workflows in a startup environment. Focused on frontend development, API integration, version control, project collaboration, and real-world software development practices.",
     responsibilities: [
-      "Designing and developing robust, responsive frontend architectures.",
-      "Collaborating with cross-functional teams to deliver high-quality web applications.",
-      "Optimizing performance and implementing sophisticated UI animations.",
+      "Developed and maintained web application features using Next.js, React, and modern JavaScript, with a strong focus on reusable components and responsive user interfaces.",
+      "Assisted in building and integrating frontend components with backend APIs, ensuring reliable data flow and seamless functionality.",
+      "Collaborated with team members using Git and GitHub, following professional version control practices including branching, commits, pull requests, and code reviews.",
+      "Participated in debugging sessions, feature implementation, and technical discussions to improve application stability and user experience.",
+      "Worked with WordPress for content and website management tasks where required.",
+      "Used Jira for task management, sprint tracking, collaboration, and development workflow organization.",
+      "Gained hands-on experience in collaborative software development, code management, problem-solving, and agile startup workflows."
     ],
-    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion", "Node.js", "Team Collaboration"],
-    achievements: [
-      "Successfully delivered the core platform redesign ahead of schedule.",
-      "Improved frontend performance metrics (LCP, CLS) by over 30%.",
+    technologies: [
+      "Next.js",
+      "React",
+      "JavaScript",
+      "REST APIs",
+      "Git",
+      "GitHub",
+      "WordPress",
+      "Jira",
+      "Responsive Design",
+      "Debugging",
+      "Team Collaboration",
+      "Feature Development",
+      "Version Control",
+      "Agile Workflow"
     ],
+    achievements: [],
     projectIds: [
-      "kyrex-main-platform",
-      "kyrex-customer-portal",
-      "kyrex-admin-dashboard",
-      "kyrex-marketing-site",
-      "kyrex-auth-service",
-      "kyrex-analytics-engine"
+      "oneatta-landing",
+      "printdash",
+      "women-s-synergy",
+      "sabka-saath-society",
+      "ggsipu-university-website",
+      "kyrex",
+      "horeka",
+      "ask-kubeir-maintenance-page",
+      "caratly-software-ui"
     ],
   }
 ];

@@ -142,7 +142,7 @@ export default function WallBentoGrid() {
         onDragEnd={handleDragEnd}
         onDragCancel={handleDragCancel}
       >
-        <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 w-full md:auto-rows-[280px] lg:auto-rows-[300px] md:grid-flow-row-dense">
+        <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 w-full md:auto-rows-[320px] lg:auto-rows-[340px] md:grid-flow-row-dense">
           <SortableContext items={tiles} strategy={rectSortingStrategy}>
             {tiles.map((id) => (
               <SortableTile key={id} id={id}>
@@ -181,12 +181,12 @@ export default function WallBentoGrid() {
 // -------------------------------------------------------------
 
 const TILE_CLASSES: Record<string, string> = {
-  'project-1': 'h-[280px] md:h-full lg:col-span-2',
-  'maps': 'h-[280px] md:h-full',
+  'project-1': 'h-[320px] md:h-full lg:col-span-2',
+  'maps': 'h-[320px] md:h-full',
   'tools': 'h-[460px] md:h-full md:row-span-2 lg:row-span-2',
-  'linkedin': 'h-[280px] md:h-full',
-  'instagram': 'h-[280px] md:h-full',
-  'github': 'h-[280px] md:h-full',
+  'linkedin': 'h-[320px] md:h-full',
+  'instagram': 'h-[320px] md:h-full',
+  'github': 'h-[320px] md:h-full',
   'project-2': 'h-[460px] md:h-full md:row-span-2 lg:row-span-2',
   'contact': 'h-[220px] md:h-full lg:col-span-2'
 };
@@ -247,13 +247,15 @@ function SortableTile({ id, children }: { id: string, children: React.ReactNode 
 // -------------------------------------------------------------
 
 function TileContent({ id, handleOpenContactModal, isOverlay = false }: { id: string, handleOpenContactModal: () => void, isOverlay?: boolean }) {
+  const [mapImgSrc, setMapImgSrc] = useState('/map.memoji.png');
+
   switch (id) {
     case 'project-1':
       return (
         <div className="h-full relative rounded-[32px] overflow-hidden bg-gray-100 dark:bg-[#111] border border-gray-100 dark:border-gray-800 shadow-sm group w-full">
           <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[32px]">
             <Image
-              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800"
+              src="/project1.png"
               alt="Project 1"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -287,13 +289,14 @@ function TileContent({ id, handleOpenContactModal, isOverlay = false }: { id: st
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="relative">
               <div className="absolute inset-0 bg-blue-400 rounded-full animate-ping opacity-40 scale-150" />
-              <div className="w-20 h-20 bg-blue-100/80 dark:bg-blue-900/80 backdrop-blur-md rounded-full border-[3px] border-white dark:border-gray-800 shadow-xl flex items-center justify-center relative z-10 overflow-hidden">
+              <div className="w-24 h-24 bg-blue-100/80 dark:bg-blue-900/80 backdrop-blur-md rounded-full border-[3px] border-white dark:border-gray-800 shadow-xl flex items-center justify-center relative z-10 overflow-hidden">
                 <Image
-                  src="/memoji.png"
+                  src={mapImgSrc}
                   alt="My Location"
                   fill
-                  sizes="80px"
+                  sizes="96px"
                   className="object-contain translate-y-1 p-2"
+                  onError={() => setMapImgSrc('/memoji.png')}
                 />
               </div>
               <FaMapMarkerAlt className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 text-[#FF3B30] text-3xl drop-shadow-md z-20" />
@@ -336,7 +339,9 @@ function TileContent({ id, handleOpenContactModal, isOverlay = false }: { id: st
         <div className="h-full w-full rounded-[32px] bg-[#0A66C2] text-white p-8 flex flex-col justify-between group relative overflow-hidden shadow-sm">
           <div className="absolute top-0 right-0 w-40 h-40 bg-white/20 rounded-full blur-3xl transform translate-x-10 -translate-y-10 pointer-events-none" />
           <div className="flex-1 flex items-center justify-center relative z-10 pointer-events-none">
-            <FaLinkedin className="text-6xl lg:text-7xl group-hover:scale-110 transition-transform duration-500 drop-shadow-lg" />
+            <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-full bg-white/20 dark:bg-white/10 backdrop-blur-md border border-white/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-[0_8px_32px_0_rgba(0,0,0,0.1)]">
+              <FaLinkedin className="text-4xl lg:text-6xl drop-shadow-md" />
+            </div>
           </div>
           <Link href="https://linkedin.com" target="_blank" onClick={(e) => { if (isOverlay) e.preventDefault(); e.stopPropagation(); }} className="absolute top-6 right-6 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm z-30 hover:bg-white/40 hover:scale-110 cursor-pointer pointer-events-auto" data-cursor="View LinkedIn" data-cursor-type="pointer" data-cursor-color="#0A66C2">
             <FiArrowUpRight className="text-white text-lg" />
@@ -348,7 +353,9 @@ function TileContent({ id, handleOpenContactModal, isOverlay = false }: { id: st
         <div className="h-full w-full rounded-[32px] text-white p-8 flex flex-col justify-between group relative overflow-hidden shadow-sm" style={{ background: 'radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%)' }}>
           <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
           <div className="flex-1 flex items-center justify-center relative z-10 pointer-events-none">
-            <FaInstagram className="text-6xl lg:text-7xl group-hover:scale-110 transition-transform duration-500 drop-shadow-lg" />
+            <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-full bg-white/20 dark:bg-white/10 backdrop-blur-md border border-white/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-[0_8px_32px_0_rgba(0,0,0,0.1)]">
+              <FaInstagram className="text-4xl lg:text-6xl drop-shadow-md" />
+            </div>
           </div>
           <Link href="https://instagram.com" target="_blank" onClick={(e) => { if (isOverlay) e.preventDefault(); e.stopPropagation(); }} className="absolute top-6 right-6 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm z-30 hover:bg-white/40 hover:scale-110 cursor-pointer pointer-events-auto" data-cursor="View Instagram" data-cursor-type="pointer" data-cursor-color="#d6249f">
             <FiArrowUpRight className="text-white text-lg" />
@@ -360,7 +367,9 @@ function TileContent({ id, handleOpenContactModal, isOverlay = false }: { id: st
         <div className="h-full w-full rounded-[32px] bg-[#0D1117] text-white p-8 flex flex-col justify-between group relative overflow-hidden shadow-sm">
           <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#58A6FF]/20 rounded-full blur-3xl transform translate-x-10 translate-y-10 pointer-events-none" />
           <div className="flex-1 flex items-center justify-center relative z-10 pointer-events-none">
-            <FaGithub className="text-6xl lg:text-7xl group-hover:scale-110 transition-transform duration-500 drop-shadow-lg" />
+            <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-[0_8px_32px_0_rgba(0,0,0,0.2)]">
+              <FaGithub className="text-4xl lg:text-6xl drop-shadow-md" />
+            </div>
           </div>
           <Link href="https://github.com" target="_blank" onClick={(e) => { if (isOverlay) e.preventDefault(); e.stopPropagation(); }} className="absolute top-6 right-6 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm z-30 hover:bg-white/20 hover:scale-110 cursor-pointer pointer-events-auto" data-cursor="View GitHub" data-cursor-type="pointer" data-cursor-color="#000000">
             <FiArrowUpRight className="text-white text-lg" />
@@ -372,7 +381,7 @@ function TileContent({ id, handleOpenContactModal, isOverlay = false }: { id: st
         <div className="h-full w-full relative rounded-[32px] overflow-hidden bg-gray-100 dark:bg-[#1A1A1A] border border-transparent dark:border-gray-800 shadow-sm group">
           <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[32px]">
             <Image
-              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800"
+              src="/project2.png"
               alt="Project 2"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"

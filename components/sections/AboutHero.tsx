@@ -1,10 +1,13 @@
 "use client";
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 import Image from 'next/image';
 
 export default function AboutHero() {
+  const [imgSrc, setImgSrc] = useState('/about.memoji.png');
+
   return (
     <section className="w-full flex flex-col items-center justify-center text-center gap-8 py-10 bg-white dark:bg-[#111] border border-gray-100 dark:border-gray-800 rounded-[32px] shadow-sm px-6 md:px-12 relative overflow-hidden">
       {/* Subtle Background Glow */}
@@ -15,15 +18,16 @@ export default function AboutHero() {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="relative w-32 h-32 md:w-40 md:h-40 rounded-full bg-blue-50 dark:bg-gray-800/50 border-4 border-white dark:border-gray-800 shadow-xl flex items-center justify-center z-10"
+        className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center z-10"
       >
         <Image
-          src="/memoji.png"
+          src={imgSrc}
           alt="Jatin Nayal Memoji"
           fill
           sizes="160px"
-          className="object-contain p-2 translate-y-2"
+          className="object-contain"
           priority
+          onError={() => setImgSrc('/memoji.png')}
         />
       </motion.div>
 

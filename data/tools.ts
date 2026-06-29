@@ -1,54 +1,36 @@
-export type ToolCategory = 
-  | 'Language' 
-  | 'Frontend' 
-  | 'Backend' 
-  | 'Database' 
-  | 'DevOps' 
-  | 'AI / LLM' 
-  | 'Design' 
-  | 'Productivity';
-
 export interface Tool {
   id: string;
   name: string;
-  category: ToolCategory;
-  logo: string; // We'll map this string to a react-icons/si icon in the component
+  logo: string;
   website: string;
   description: string;
 }
 
 export const tools: Tool[] = [
-  // Languages
+  {
+    id: 'javascript',
+    name: 'JavaScript',
+    logo: 'javascript',
+    website: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+    description: 'High-level, often just-in-time compiled language that conforms to the ECMAScript specification.',
+  },
   {
     id: 'typescript',
     name: 'TypeScript',
-    category: 'Language',
     logo: 'typescript',
     website: 'https://www.typescriptlang.org/',
     description: 'Strongly typed programming language that builds on JavaScript.',
   },
   {
-    id: 'javascript',
-    name: 'JavaScript',
-    category: 'Language',
-    logo: 'javascript',
-    website: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
-    description: 'High-level, often just-in-time compiled language that conforms to the ECMAScript specification.',
-  },
-  
-  // Frontend
-  {
     id: 'react',
-    name: 'React',
-    category: 'Frontend',
+    name: 'React.js',
     logo: 'react',
     website: 'https://react.dev/',
-    description: 'The library for web and native user interfaces.',
+    description: 'Building modern, component-driven user interfaces with reusable architecture.',
   },
   {
     id: 'nextjs',
     name: 'Next.js',
-    category: 'Frontend',
     logo: 'next.js',
     website: 'https://nextjs.org/',
     description: 'The React Framework for the Web with built-in optimizations.',
@@ -56,123 +38,148 @@ export const tools: Tool[] = [
   {
     id: 'tailwindcss',
     name: 'Tailwind CSS',
-    category: 'Frontend',
     logo: 'tailwind',
     website: 'https://tailwindcss.com/',
     description: 'A utility-first CSS framework for rapid UI development.',
   },
   {
-    id: 'framer-motion',
-    name: 'Framer Motion',
-    category: 'Frontend',
-    logo: 'framer',
-    website: 'https://www.framer.com/motion/',
-    description: 'A production-ready motion library for React.',
+    id: 'redux',
+    name: 'Redux Toolkit',
+    logo: 'redux',
+    website: 'https://redux-toolkit.js.org/',
+    description: 'The official, opinionated, batteries-included toolset for efficient Redux development.',
   },
-
-  // Backend
   {
     id: 'nodejs',
     name: 'Node.js',
-    category: 'Backend',
     logo: 'node.js',
     website: 'https://nodejs.org/',
     description: 'JavaScript runtime built on Chrome\'s V8 JavaScript engine.',
   },
   {
     id: 'express',
-    name: 'Express',
-    category: 'Backend',
+    name: 'Express.js',
     logo: 'express',
     website: 'https://expressjs.com/',
     description: 'Fast, unopinionated, minimalist web framework for Node.js.',
   },
-
-  // Database
+  {
+    id: 'restapi',
+    name: 'REST API Design',
+    logo: 'rest',
+    website: 'https://restfulapi.net/',
+    description: 'Architectural style for designing networked applications and standardizing communication.',
+  },
+  {
+    id: 'jwt',
+    name: 'JWT Authentication',
+    logo: 'jwt',
+    website: 'https://jwt.io/',
+    description: 'Compact, URL-safe means of representing claims to be transferred between two parties.',
+  },
+  {
+    id: 'mongodb',
+    name: 'MongoDB',
+    logo: 'mongodb',
+    website: 'https://www.mongodb.com/',
+    description: 'A document-based, distributed database built for modern applications.',
+  },
+  {
+    id: 'redis',
+    name: 'Redis',
+    logo: 'redis',
+    website: 'https://redis.io/',
+    description: 'In-memory data structure store, used as a database, cache, and message broker.',
+  },
   {
     id: 'postgresql',
     name: 'PostgreSQL',
-    category: 'Database',
     logo: 'postgresql',
     website: 'https://www.postgresql.org/',
     description: 'The World\'s Most Advanced Open Source Relational Database.',
   },
   {
-    id: 'mongodb',
-    name: 'MongoDB',
-    category: 'Database',
-    logo: 'mongodb',
-    website: 'https://www.mongodb.com/',
-    description: 'A document-based, distributed database built for modern applications.',
+    id: 'systemdesign',
+    name: 'System Design',
+    logo: 'system',
+    website: 'https://github.com/donnemartin/system-design-primer',
+    description: 'Process of defining the architecture, modules, interfaces, and data for a system.',
   },
-
-  // DevOps & Tools
   {
     id: 'git',
     name: 'Git',
-    category: 'DevOps',
     logo: 'git',
     website: 'https://git-scm.com/',
     description: 'Free and open source distributed version control system.',
   },
   {
-    id: 'docker',
-    name: 'Docker',
-    category: 'DevOps',
-    logo: 'docker',
-    website: 'https://www.docker.com/',
-    description: 'Platform designed to help developers build, share, and run modern applications.',
+    id: 'github',
+    name: 'GitHub',
+    logo: 'github',
+    website: 'https://github.com/',
+    description: 'Hosting service for software development and version control using Git.',
   },
   {
     id: 'vercel',
     name: 'Vercel',
-    category: 'DevOps',
     logo: 'vercel',
     website: 'https://vercel.com/',
     description: 'Frontend cloud platform providing seamless deployment and edge delivery.',
   },
   {
-    id: 'vscode',
-    name: 'VS Code',
-    category: 'Productivity',
-    logo: 'vscode',
-    website: 'https://code.visualstudio.com/',
-    description: 'Code editor redefined and optimized for building and debugging modern applications.',
+    id: 'render',
+    name: 'Render',
+    logo: 'render',
+    website: 'https://render.com/',
+    description: 'Unified cloud to build and run all your apps and websites with free TLS certificates.',
   },
   {
-    id: 'cursor',
-    name: 'Cursor',
-    category: 'Productivity',
-    logo: 'cursor',
-    website: 'https://cursor.com/',
-    description: 'The AI-first code editor built to write, refactor, and debug code instantly.',
+    id: 'postman',
+    name: 'Postman',
+    logo: 'postman',
+    website: 'https://www.postman.com/',
+    description: 'API platform for building and using APIs to simplify each step of the API lifecycle.',
   },
-
-  // AI / LLMs
   {
-    id: 'chatgpt',
-    name: 'ChatGPT',
-    category: 'AI / LLM',
-    logo: 'openai',
-    website: 'https://chat.openai.com/',
-    description: 'Advanced language model by OpenAI used for code generation and logic problem solving.',
+    id: 'jira',
+    name: 'Jira',
+    logo: 'jira',
+    website: 'https://www.atlassian.com/software/jira',
+    description: 'Issue tracking product that allows bug tracking and agile project management.',
+  },
+  {
+    id: 'llm',
+    name: 'LLM Integration',
+    logo: 'llm',
+    website: 'https://openai.com/',
+    description: 'Integrating Large Language Models into applications for natural language processing tasks.',
+  },
+  {
+    id: 'prompt',
+    name: 'Prompt Engineering',
+    logo: 'prompt',
+    website: 'https://www.promptingguide.ai/',
+    description: 'Designing and optimizing prompts to efficiently use language models for diverse tasks.',
+  },
+  {
+    id: 'antigravity',
+    name: 'Antigravity',
+    logo: 'antigravity',
+    website: 'https://deepmind.google/technologies/',
+    description: 'Advanced agentic coding assistant designed by Google DeepMind to solve complex software engineering tasks.',
   },
   {
     id: 'claude',
     name: 'Claude',
-    category: 'AI / LLM',
-    logo: 'anthropic',
+    logo: 'claude',
     website: 'https://claude.ai/',
-    description: 'Helpful and harmless AI assistant by Anthropic with a massive context window.',
+    description: 'Next-generation AI assistant by Anthropic, designed for safety, coding, and complex reasoning.',
   },
-  
-  // Design
   {
-    id: 'figma',
-    name: 'Figma',
-    category: 'Design',
-    logo: 'figma',
-    website: 'https://www.figma.com/',
-    description: 'The collaborative interface design tool for building cohesive digital products.',
+    id: 'opencode',
+    name: 'OpenCode',
+    logo: 'opencode',
+    website: 'https://github.com/features/copilot',
+    description: 'Open initiatives and advanced tooling designed to enhance AI-driven code generation and developer collaboration.',
   }
 ];
